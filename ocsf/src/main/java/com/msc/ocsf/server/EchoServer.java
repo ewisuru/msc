@@ -68,6 +68,15 @@ public class EchoServer extends AbstractServer {
 				}
 			}
 		}
+		// Processing the Channel Command here.
+		else if (String.valueOf(msg).split(" ")[0].equalsIgnoreCase("#channel")) {
+			// If it is a Channel Command then First create a Channel with the
+			// given Id and add it to the Client.
+			String channelId = String.valueOf(msg).split(" ")[1];
+			Channel channel = new Channel(channelId);
+			// Add the channel to the current client.
+			
+		}
 		/*
 		 * If NOT a #login message then, ensure that the client has been #logged
 		 * in before sending any other message to the server by merely fetching

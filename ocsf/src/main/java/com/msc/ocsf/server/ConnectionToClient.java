@@ -6,7 +6,9 @@ package com.msc.ocsf.server;
 
 import java.io.*;
 import java.net.*;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * An instance of this class is created by the server when a client connects. It
@@ -64,6 +66,11 @@ public class ConnectionToClient extends Thread {
 	 */
 	private HashMap savedInfo = new HashMap(10);
 
+	/**
+	 * Represents the {@link Channel} for which this Client Registered.
+	 */
+	private List<Channel> registeredChannels;
+
 	// CONSTRUCTORS *****************************************************
 
 	/**
@@ -87,6 +94,8 @@ public class ConnectionToClient extends Thread {
 		this.server = server;
 
 		clientSocket.setSoTimeout(0); // make sure timeout is infinite
+
+		registeredChannels = new ArrayList<Channel>();
 
 		// Initialize the objects streams
 		try {
