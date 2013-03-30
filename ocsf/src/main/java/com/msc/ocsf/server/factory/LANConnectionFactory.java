@@ -1,11 +1,10 @@
 package com.msc.ocsf.server.factory;
 
-import java.io.IOException;
 import java.net.Socket;
 
 import com.msc.ocsf.server.AbstractServer;
 import com.msc.ocsf.server.ConnectionToClient;
-import com.msc.ocsf.server.InternetConnectionToClient;
+import com.msc.ocsf.server.LANConnectionToClient;
 
 /**
  * Represents a Concrete Connection Factory which creates sub types of
@@ -14,13 +13,14 @@ import com.msc.ocsf.server.InternetConnectionToClient;
  * 
  * 
  */
-public class InternetConnectionFactory implements AbstractConnectionFactory {
-
+public class LANConnectionFactory implements AbstractConnectionFactory {
 	/**
-	 * Creates and returns a sub type of {@link ConnectionToClient} class.
+	 * creates and returns a Connection which is used in a LAN environment to
+	 * connect with the chat application.
 	 */
 	public ConnectionToClient createConnection(ThreadGroup threadGroup,
-			Socket clientSocket, AbstractServer server) throws IOException {
-		return new InternetConnectionToClient(threadGroup, clientSocket, server);
+			Socket clientSocket, AbstractServer server) throws Exception {
+		return new LANConnectionToClient(threadGroup, clientSocket, server);
 	}
+
 }

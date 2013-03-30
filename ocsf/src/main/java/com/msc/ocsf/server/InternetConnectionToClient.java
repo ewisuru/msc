@@ -6,7 +6,6 @@ import java.net.Socket;
 /**
  * Represents a specific implementation of the {@link ConnectionToClient} class.
  * 
- * @author Ravindra
  * 
  */
 public class InternetConnectionToClient extends ConnectionToClient {
