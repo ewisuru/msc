@@ -28,4 +28,8 @@ public class SpecificConnectionToClient extends ConnectionToClient {
 		super(group, clientSocket, server);
 	}
 
+	public boolean handleMessageFromClient(Object message) {
+		return true;
+	}
+
 }
