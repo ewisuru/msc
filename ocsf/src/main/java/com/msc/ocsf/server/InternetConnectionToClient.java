@@ -9,7 +9,7 @@ import java.net.Socket;
  * @author Ravindra
  * 
  */
-public class SpecificConnectionToClient extends ConnectionToClient {
+public class InternetConnectionToClient extends ConnectionToClient {
 
 	/**
 	 * Constructs a specific sub type of the {@link ConnectionToClient} class.
@@ -23,7 +23,7 @@ public class SpecificConnectionToClient extends ConnectionToClient {
 	 * @throws IOException
 	 *             If any Error occurs while execution.
 	 */
-	public SpecificConnectionToClient(ThreadGroup group, Socket clientSocket,
+	public InternetConnectionToClient(ThreadGroup group, Socket clientSocket,
 			AbstractServer server) throws IOException {
 		super(group, clientSocket, server);
 	}

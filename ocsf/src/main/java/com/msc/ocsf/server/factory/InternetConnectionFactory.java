@@ -5,7 +5,7 @@ import java.net.Socket;
 
 import com.msc.ocsf.server.AbstractServer;
 import com.msc.ocsf.server.ConnectionToClient;
-import com.msc.ocsf.server.SpecificConnectionToClient;
+import com.msc.ocsf.server.InternetConnectionToClient;
 
 /**
  * Represents a Concrete Connection Factory which creates sub types of
@@ -15,13 +15,13 @@ import com.msc.ocsf.server.SpecificConnectionToClient;
  * @author Ravindra
  * 
  */
-public class ConcreteConnectionFactory implements AbstractConnectionFactory {
+public class InternetConnectionFactory implements AbstractConnectionFactory {
 
 	/**
 	 * Creates and returns a sub type of {@link ConnectionToClient} class.
 	 */
 	public ConnectionToClient createConnection(ThreadGroup threadGroup,
 			Socket clientSocket, AbstractServer server) throws IOException {
-		return new SpecificConnectionToClient(threadGroup, clientSocket, server);
+		return new InternetConnectionToClient(threadGroup, clientSocket, server);
 	}
 }
