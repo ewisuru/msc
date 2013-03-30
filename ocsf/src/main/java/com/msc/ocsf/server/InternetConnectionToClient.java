@@ -27,6 +27,12 @@ public class InternetConnectionToClient extends ConnectionToClient {
 		super(group, clientSocket, server);
 	}
 
+	/**
+	 * handles the message sent by the client.
+	 * 
+	 * @param message
+	 * @return
+	 */
 	public boolean handleMessageFromClient(Object message) {
 		return true;
 	}

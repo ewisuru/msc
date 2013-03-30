@@ -9,6 +9,9 @@ import java.io.InterruptedIOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+import com.msc.ocsf.server.factory.AbstractConnectionFactory;
+import com.msc.ocsf.server.factory.LANConnectionFactory;
+
 /**
  * The <code> AbstractServer </code> class maintains a thread that waits for
  * connection attempts from clients. When a connection attempt occurs it creates
@@ -79,6 +82,8 @@ public abstract class AbstractServer implements Runnable {
 	 */
 	private boolean readyToStop = false;
 
+	private AbstractConnectionFactory connectionFactory;
+
 	// CONSTRUCTOR ******************************************************
 
 	/**
@@ -97,6 +102,8 @@ public abstract class AbstractServer implements Runnable {
 				clientException((ConnectionToClient) thread, exception);
 			}
 		};
+		// Setting the Connection Factory.
+		setConnectionFactory(new LANConnectionFactory());
 	}
 
 	// INSTANCE METHODS *************************************************
@@ -423,5 +430,10 @@ public abstract class AbstractServer implements Runnable {
 	public boolean isReadyToStop() {
 		return readyToStop;
 	}
+
+	public void setConnectionFactory(AbstractConnectionFactory connectionFactory) {
+		this.connectionFactory = connectionFactory;
+	}
+
 }
 // End of AbstractServer Class

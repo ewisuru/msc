@@ -23,4 +23,14 @@ public class LANConnectionFactory implements AbstractConnectionFactory {
 		return new LANConnectionToClient(threadGroup, clientSocket, server);
 	}
 
+	/**
+	 * handles the message sent by the client.
+	 * 
+	 * @param message
+	 * @return
+	 */
+	public boolean handleMessageFromClient(Object message) {
+		return true;
+	}
+
 }
