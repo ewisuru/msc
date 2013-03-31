@@ -271,5 +271,15 @@ public class ConnectionToClient extends Thread {
 		} catch (IOException e) {
 		}
 	}
+
+	/**
+	 * Implements the default behavior here.
+	 * 
+	 * @param message message sent by the client.
+	 * @return 
+	 */
+	public synchronized boolean handleMessageFromClient(Object message) {
+		return true;
+	}
 }
 // End of ConnectionToClient class

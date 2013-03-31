@@ -33,6 +33,7 @@ public class InternetConnectionToClient extends ConnectionToClient {
 	 * @param message
 	 * @return
 	 */
+	@Override
 	public boolean handleMessageFromClient(Object message) {
 		return true;
 	}

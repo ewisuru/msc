@@ -1,5 +1,6 @@
 package com.msc.ocsf.server.factory;
 
+import java.io.IOException;
 import java.net.Socket;
 
 import com.msc.ocsf.server.AbstractServer;
@@ -19,18 +20,8 @@ public class LANConnectionFactory implements AbstractConnectionFactory {
 	 * connect with the chat application.
 	 */
 	public ConnectionToClient createConnection(ThreadGroup threadGroup,
-			Socket clientSocket, AbstractServer server) throws Exception {
+			Socket clientSocket, AbstractServer server) throws IOException {
 		return new LANConnectionToClient(threadGroup, clientSocket, server);
-	}
-
-	/**
-	 * handles the message sent by the client.
-	 * 
-	 * @param message
-	 * @return
-	 */
-	public boolean handleMessageFromClient(Object message) {
-		return true;
 	}
 
 }

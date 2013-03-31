@@ -82,7 +82,7 @@ public abstract class AbstractServer implements Runnable {
 	 */
 	private boolean readyToStop = false;
 
-	private AbstractConnectionFactory connectionFactory;
+	protected AbstractConnectionFactory connectionFactory;
 
 	// CONSTRUCTOR ******************************************************
 
@@ -294,8 +294,12 @@ public abstract class AbstractServer implements Runnable {
 					// the data exchange, then add it to thread group
 
 					synchronized (this) {
-						ConnectionToClient c = new ConnectionToClient(
-								this.clientThreadGroup, clientSocket, this);
+						// ConnectionToClient c = new ConnectionToClient(
+						// this.clientThreadGroup, clientSocket, this);
+						// Use the Factory instead of using new keyword here.
+						ConnectionToClient c = connectionFactory
+								.createConnection(clientThreadGroup,
+										clientSocket, this);
 					}
 				} catch (InterruptedIOException exception) {
 					// This will be thrown when a timeout occurs.

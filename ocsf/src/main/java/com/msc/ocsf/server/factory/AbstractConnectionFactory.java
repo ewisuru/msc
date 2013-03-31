@@ -1,5 +1,6 @@
 package com.msc.ocsf.server.factory;
 
+import java.io.IOException;
 import java.net.Socket;
 
 import com.msc.ocsf.server.AbstractServer;
@@ -18,5 +19,5 @@ public interface AbstractConnectionFactory {
 	 * @return
 	 */
 	public ConnectionToClient createConnection(ThreadGroup threadGroup,
-			Socket clientSocket, AbstractServer server) throws Exception;
+			Socket clientSocket, AbstractServer server) throws IOException;
 }
